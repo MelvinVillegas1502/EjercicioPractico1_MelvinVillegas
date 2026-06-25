@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Reserva - Gimnasio Fitness</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments/plantilla :: header}"></header>
+<nav th:replace="~{fragments/plantilla :: navbar}"></nav>
+
+<main class="contenedor">
+    <h2 class="titulo">Formulario de Reserva</h2>
+
+    <form th:action="@{/reservas/guardar}" th:object="${reserva}" method="post">
+
+        <input type="hidden" th:field="*{id}">
+
+        <label>Nombre del cliente</label>
+        <input type="text" th:field="*{nombreCliente}" required>
+
+        <label>Fecha</label>
+        <input type="date" th:field="*{fecha}" required>
+
+        <label>Clase</label>
+        <select th:field="*{servicio.id}" required>
+            <option value="">Seleccione una clase</option>
+            <option th:each="servicio : ${servicios}"
+                    th:value="${servicio.id}"
+                    th:text="${servicio.nombre}">
+            </option>
+        </select>
+
+        <button class="btn" type="submit">Guardar</button>
+
+        <a class="btn btn-secundario" th:href="@{/reservas}">
+            Volver
+        </a>
+    </form>
+</main>
+
+<footer th:replace="~{fragments/plantilla :: footer}"></footer>
+
+</body>
+</html>

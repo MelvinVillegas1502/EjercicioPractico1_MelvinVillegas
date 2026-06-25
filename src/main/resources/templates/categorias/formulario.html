@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Categoría - Gimnasio Fitness</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments/plantilla :: header}"></header>
+<nav th:replace="~{fragments/plantilla :: navbar}"></nav>
+
+<main class="contenedor">
+    <h2 class="titulo">Formulario de Categoría</h2>
+
+    <form th:action="@{/categorias/guardar}" th:object="${categoria}" method="post">
+
+        <input type="hidden" th:field="*{id}">
+
+        <label>Nombre de la categoría</label>
+        <input type="text" th:field="*{nombre}" required>
+
+        <button class="btn" type="submit">Guardar</button>
+
+        <a class="btn btn-secundario" th:href="@{/categorias}">
+            Volver
+        </a>
+    </form>
+</main>
+
+<footer th:replace="~{fragments/plantilla :: footer}"></footer>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gimnasio Fitness</title>
+</head>
+<body>
+
+<header th:fragment="header">
+    <div class="header">
+        <h1>Gimnasio Fitness</h1>
+        <p>Entrena fuerte, vive mejor</p>
+    </div>
+</header>
+
+<nav th:fragment="navbar">
+    <div class="navbar">
+        <a th:href="@{/}">Inicio</a>
+        <a th:href="@{/categorias}">Categorías</a>
+        <a th:href="@{/servicios}">Clases</a>
+        <a th:href="@{/reservas}">Reservas</a>
+        <a th:href="@{/contacto}">Contacto</a>
+    </div>
+</nav>
+
+<footer th:fragment="footer">
+    <div class="footer">
+        <p>© 2026 Gimnasio Fitness - Todos los derechos reservados</p>
+    </div>
+</footer>
+
+</body>
+</html>
