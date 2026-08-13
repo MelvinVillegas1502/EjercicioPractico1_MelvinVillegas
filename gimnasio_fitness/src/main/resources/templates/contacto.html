@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contacto - Gimnasio Fitness</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments/plantilla :: header}"></header>
+<nav th:replace="~{fragments/plantilla :: navbar}"></nav>
+
+<main class="contenedor">
+    <h2 class="titulo">Quejas y Sugerencias</h2>
+
+    <p>
+        Complete el siguiente formulario para enviar consultas, quejas o sugerencias
+        al gimnasio.
+    </p>
+
+    <p th:if="${mensaje}" th:text="${mensaje}" style="color: green; font-weight: bold;"></p>
+
+    <form th:action="@{/contacto/enviar}" method="post">
+        <label>Nombre</label>
+        <input type="text" name="nombre" required>
+
+        <label>Correo electrónico</label>
+        <input type="email" name="correo" required>
+
+        <label>Mensaje</label>
+        <textarea name="mensaje" rows="5" required></textarea>
+
+        <button class="btn" type="submit">Enviar mensaje</button>
+    </form>
+</main>
+
+<footer th:replace="~{fragments/plantilla :: footer}"></footer>
+
+</body>
+</html>
