@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inicio - Gimnasio Fitness</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments/plantilla :: header}"></header>
+<nav th:replace="~{fragments/plantilla :: navbar}"></nav>
+
+<main class="contenedor">
+    <section class="hero">
+        <div class="hero-texto">
+            <h2 class="titulo">Bienvenido a Gimnasio Fitness</h2>
+
+            <p>
+                Somos un centro fitness enfocado en mejorar la salud, condición física
+                y bienestar de nuestros clientes mediante clases guiadas y entrenamientos
+                personalizados.
+            </p>
+
+            <h3>Nueva clase destacada</h3>
+            <p>
+                Este mes traemos la clase de <strong th:text="${claseDestacada}">HIIT Intensivo</strong>,
+                ideal para quemar calorías, mejorar la resistencia y entrenar todo el cuerpo.
+            </p>
+
+            <a class="btn" th:href="@{/servicios}">Ver clases disponibles</a>
+        </div>
+
+        <div class="hero-video">
+            <iframe src="https://www.youtube.com/embed/ml6cT4AZdqI"
+                    title="Rutina de entrenamiento"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+</main>
+
+<footer th:replace="~{fragments/plantilla :: footer}"></footer>
+
+</body>
+</html>
